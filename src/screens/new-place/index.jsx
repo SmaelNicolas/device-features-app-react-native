@@ -9,6 +9,7 @@ import { styles } from "./styles";
 
 const NewPlace = ({ navigation }) => {
 	const [title, setTitle] = useState("");
+	const [image, setImage] = useState(null);
 
 	const dispatch = useDispatch();
 
@@ -16,8 +17,12 @@ const NewPlace = ({ navigation }) => {
 		setTitle(txt);
 	};
 
+	const onHandleImageSelect = (imageUrl) => {
+		setImage(imageUrl);
+	};
+
 	const onHandleSubmit = () => {
-		dispatch(addPlace({ title }));
+		dispatch(addPlace({ title, image }));
 		navigation.goBack();
 	};
 
@@ -31,7 +36,7 @@ const NewPlace = ({ navigation }) => {
 					onChangeText={onHandleText}
 					value={title}
 				/>
-				<ImageSelector />
+				<ImageSelector onImage={onHandleImageSelect} />
 				<Button
 					color={colors.primary}
 					title="Guardar"

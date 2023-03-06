@@ -12,7 +12,8 @@ const placeSlice = createSlice({
 		addPlace: (state, action) => {
 			const newPlace = new Place(
 				Date.now.toString(),
-				action.payload.title
+				action.payload.title,
+				action.payload.image
 			);
 			state.places.push(newPlace);
 		},
