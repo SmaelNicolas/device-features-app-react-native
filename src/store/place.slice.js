@@ -10,8 +10,9 @@ const placeSlice = createSlice({
 	initialState,
 	reducers: {
 		addPlace: (state, action) => {
+			console.log("ACTION EN SLICE", action);
 			const newPlace = new Place(
-				Date.now.toString(),
+				Date.now().toString(),
 				action.payload.title,
 				action.payload.image
 			);
