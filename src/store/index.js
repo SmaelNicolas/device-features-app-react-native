@@ -1,4 +1,4 @@
-import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 
 import placeReducer from "./place.slice";
 
@@ -7,5 +7,7 @@ export const store = configureStore({
 		place: placeReducer,
 	},
 	middleware: (getDefaultMiddleware) =>
-		getDefaultMiddleware({ serializableCheck: false }),
+		getDefaultMiddleware({
+			serializableCheck: false,
+		}),
 });
